@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../composer-alias"
+        }
+    ],
+    "require": {
+        "slince/composer-alias": "*@dev"
+    }
+}
