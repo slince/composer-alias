@@ -1,6 +1,7 @@
 {
     "name": "slince/composer-alias",
     "description": "Composer Alias Plugin",
+    "keywords": ["composer", "composer-plugin", "alias", "composer-alias", "composer-alias-plugin"],
     "type": "composer-plugin",
     "license": "MIT",
     "require": {
