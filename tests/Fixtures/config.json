@@ -1,0 +1,17 @@
+{
+    "config": {
+        "_alias": {
+            "val": "validate",
+            "req": "require",
+            "req-slince": "re slince/di slince/event",
+            "up": "update",
+            "res": "require"
+        }
+	},
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}

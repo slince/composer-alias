@@ -1,6 +1,6 @@
 {
     "name": "slince/composer-alias",
-    "description": "",
+    "description": "Composer Alias Plugin",
     "type": "composer-plugin",
     "license": "MIT",
     "require": {
@@ -8,7 +8,8 @@
         "composer-plugin-api": "^1.0"
     },
     "require-dev": {
-        "composer/composer": "^1.0"
+        "composer/composer": "^1.0",
+        "phpunit/phpunit": "^5.0|^6.0"
     },
     "autoload": {
         "psr-4": {

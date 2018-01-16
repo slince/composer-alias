@@ -8,7 +8,6 @@
  * file that was distributed with this source code.
  */
 
-
 namespace Slince\ComposerAlias;
 
 use Composer\Composer;
@@ -17,6 +16,7 @@ use Composer\Json\JsonFile;
 use Composer\Plugin\Capability\CommandProvider;
 use Composer\Plugin\Capable;
 use Composer\Plugin\PluginInterface;
+use Slince\ComposerAlias\Command\ProxyCommand;
 
 class ComposerAlias implements PluginInterface, Capable, CommandProvider
 {
@@ -33,14 +33,20 @@ class ComposerAlias implements PluginInterface, Capable, CommandProvider
     /**
      * @var AliasCollection
      */
-    protected $aliases;
+    protected static $aliases;
 
+    protected static $activated = false;
+
+    /**
+     * {@inheritdoc}
+     */
     public function activate(Composer $composer, IOInterface $io)
     {
         $this->composer = $composer;
         $this->io = $io;
-        $configFile = $this->composer->getConfig()->get('home') . '/config.json';
-        $this->aliases = new AliasCollection(new JsonFile($configFile, null, $this->io));
+        $configFile = $this->composer->getConfig()->get('home').'/config.json';
+        static::$aliases = new AliasCollection(new JsonFile($configFile, null, $this->io));
+        static::$activated = true;
     }
 
     /**
@@ -49,7 +55,7 @@ class ComposerAlias implements PluginInterface, Capable, CommandProvider
     public function getCapabilities()
     {
         return [
-            CommandProvider::class => __CLASS__
+            CommandProvider::class => __CLASS__,
         ];
     }
 
@@ -58,8 +64,21 @@ class ComposerAlias implements PluginInterface, Capable, CommandProvider
      */
     public function getCommands()
     {
-        return [
-//            new Command\SetAliasCommand($this->aliases)
+        $commands = [
+            new Command\AliasCommand($this),
         ];
+        foreach (array_keys($this->getAliases()->all()) as $alias) {
+            $commands[] = new ProxyCommand($alias, $this);
+        }
+
+        return $commands;
+    }
+
+    /**
+     * @return AliasCollection
+     */
+    public function getAliases()
+    {
+        return static::$aliases;
     }
 }
