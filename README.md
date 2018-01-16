@@ -29,10 +29,12 @@ $ composer up
  ```
 ## USAGE
 
-### Add an alias:
+Add an alias:
 ```bash
 $ composer alias req require
 ```
+Equals:
+
 ```bash
 $ composer req symfony/console
 ```
@@ -48,15 +50,10 @@ You can install "symfony/console", "symfony/event-dispatcher" with this command:
 $ composer req-sf
 ```
 
-### Others
+Execute the following command for help.
 
-Remove:
- ```bash
- $ composer alias "alias" --unset
- ```
-List all aliases
 ```bash
-$ composer alias --list
+$ composer alias --help
 ```
 
 ## LICENSE
