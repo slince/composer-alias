@@ -11,7 +11,7 @@ Add alias-support feature for your composer.
 Install via composer.
 
 ```bahs
-$ comoposer require slince/composer-alias
+$ composer global require slince/composer-alias
 ```
 
 ## Example
