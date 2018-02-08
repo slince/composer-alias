@@ -1,66 +1,63 @@
-# Composer Alias Plugin
+# Composer 别名插件
 
-Add alias-support feature for your composer.
+给你的 Composer 添加别名支持功能。
 
 [![Build Status](https://img.shields.io/travis/slince/composer-alias/master.svg?style=flat-square)](https://travis-ci.org/slince/composer-alias)
 [![Latest Stable Version](https://img.shields.io/packagist/v/slince/composer-alias.svg?style=flat-square&label=stable)](https://packagist.org/packages/slince/composer-alias)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/slince/composer-alias.svg?style=flat-square)](https://scrutinizer-ci.com/g/slince/composer-alias/?branch=master)
 
-[中文版](./README-zh_CN.md)
+## 安装
 
-## Installation
-
-Install via composer.
+使用 composer 安装.
 
 ```bahs
 $ composer global require slince/composer-alias
 ```
 
-## Example
+## 案例
 
-Add alias for `composer update`;
+给 `composer update` 添加别名;
 
 ```bash
 $ composer alias up update
 ```
 
-Now, you can execute the following command to update your dependencies.
+现在你可以使用这样的命令去更新你的依赖。
 
  ```bash
 $ composer up
  ```
-## USAGE
+## 用法
 
-### Add an alias:
+### 添加别名:
 ```bash
 $ composer alias req require
 ```
-Equals:
+等价于:
 
 ```bash
 $ composer req symfony/console
 ```
 
-### Group packages
+### 给 packages 分组
 
-You can use this command to group packages. like this:
-
+你可以像这样，给你常用的第三方包进行分组
 ```bash
 $ composer req-sf "require symfony/console symfony/event-dispatcher"
 ```
 
-You can install "symfony/console", "symfony/event-dispatcher" with this command:
+现在你可以使用像这样的比较短的命令同事安装多个包 "symfony/console", "symfony/event-dispatcher"
 
 ```bash
 $ composer req-sf
 ```
-### List all alias
+### 列出所有的别名
 
 ```bash
 $ composer alias -l
 ```
 
-will output:
+会输出：
 
 ```
  -------- --------------------------------------------------
@@ -73,20 +70,21 @@ will output:
   i        install
  -------- --------------------------------------------------
 ```
-### Remove an existing alias
+### 移除已经存在的别名
 
 ```bash
 $ composer alias [alias name] --unset
 ```
 
 ### Help
-Execute the following command for help.
+
+执行下面命令查看帮助
 
 ```bash
 $ composer alias --help
 ```
 
-## LICENSE
+## 开源协议
 
-The MIT license. See [MIT](https://opensource.org/licenses/MIT)
+采用 MIT 协议. 看 [MIT](https://opensource.org/licenses/MIT)
  
